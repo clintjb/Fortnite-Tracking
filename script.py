@@ -22,7 +22,7 @@ def get_fortnite_data(api_key):
         return None
 
 def main():
-    api_key = os.environ['ENV_SECRET']
+    api_key = [SECRET]
 
     # Fetch Fortnite data
     api_response = get_fortnite_data(api_key)
