@@ -4,6 +4,7 @@ import random
 import os
 
 SECRET = os.environ['ENV_SECRET']
+print (SECRET)
 
 def get_fortnite_data(api_key):
     url = "https://fortniteapi.io/v1/stats?account=5afc257cdbf8408ebebcf241a681a1e9"
