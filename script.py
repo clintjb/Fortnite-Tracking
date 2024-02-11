@@ -22,7 +22,7 @@ def get_fortnite_data(api_key):
         return None
 
 def main():
-    api_key = [SECRET]
+    api_key = SECRET
 
     # Fetch Fortnite data
     api_response = get_fortnite_data(api_key)
@@ -83,7 +83,6 @@ html = """\
 </body>
 </html>
 """.format(**locals())
-
 # Output to HTML file
 with open("fortnite.html", "w") as file:
     file.write(html)
