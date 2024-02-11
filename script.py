@@ -4,7 +4,6 @@ import random
 import os
 
 SECRET = os.environ['ENV_SECRET']
-print (SECRET)
 
 def get_fortnite_data(api_key):
     url = "https://fortniteapi.io/v1/stats?account=5afc257cdbf8408ebebcf241a681a1e9"
@@ -68,8 +67,8 @@ html = """\
 <body>
 <div class="card">
   <div class="layered-image">
-    <img class="image-base" src="https://clintbird.com/images/posts/2024/fortnite_skins/background.avif" alt="" style="width:100%"/>
-    <img class="image-overlay" src="https://clintbird.com/images/posts/2024/fortnite_skins/{skin}.png" alt="IronVogel" style="width:100%"/>
+    <img class="image-base" src="images/background.avif" alt="" style="width:100%"/>
+    <img class="image-overlay" src="images/{skin}.png" alt="IronVogel" style="width:100%"/>
   </div>
   <h1>IronVogel</h1>
   <p class="title"><i class="fab fa-playstation"  ></i> Current Level - {level}</p>
