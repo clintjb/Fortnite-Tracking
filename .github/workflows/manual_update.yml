@@ -25,7 +25,8 @@ jobs:
 
       - name: Running Scripts
         env:
-          SECRET: ${{ secrets.SECRET }} 
+          ENV_SECRET: ${{ secrets.ENV_SECRET }} 
+          REPO_SECRET: ${{ secrets.REPO_SECRET }}
         run: |
           pip install -r requirements.txt
           python script.py
