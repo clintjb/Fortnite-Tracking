@@ -83,7 +83,7 @@ html = """\
     <p><i class="fas fa-tachometer-alt"></i> {kd_average} K/D Ratio</p>
     <p><i class="fas fa-skull-crossbones"></i> {kills_sum} Kills</p>
   </div>
-  <p><small>Updated {date}<small></p>
+  <p><small><small><small>Updated {date}<small><small><small></p>
   <p><button onclick="document.location='https://fortnitetracker.com/profile/all/IronVogel'">Detailed Stats</button></p>
 </div>
 </body>
