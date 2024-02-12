@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   build:
-    environment: FORTNITE_SECRET
+    environment: ENV_SECRET
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Running Scripts
         env:
-          ENV_SECRET: ${{ secrets.ENV_SECRET }} 
+          ENV_SECRET: ${{ secrets.FORTNITE_SECRET }} 
         run: |
           pip install -r requirements.txt
           python script.py
