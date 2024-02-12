@@ -1,6 +1,7 @@
 import requests
 import json
 import random
+import datetime
 import os
 
 SECRET = os.environ['ENV_SECRET']
@@ -58,6 +59,15 @@ if __name__ == "__main__":
 
 skin = (random.randint(1, 20))
 
+# Define a list of suffixes for days
+suffixes = ['th', 'st', 'nd', 'rd'] + ['th'] * 10
+
+# Get today's date
+today = datetime.today()
+
+# Format the date string
+date = today.strftime("%A %d{} %B %Y").format(suffixes[today.day % 10])
+
 html = """\
 <html>
 <head>
@@ -77,6 +87,8 @@ html = """\
     <p><i class="fas fa-star-half-alt"></i> {winrate_average} % Win Ratio</p>
     <p><i class="fas fa-tachometer-alt"></i> {kd_average} K/D Ratio</p>
     <p><i class="fas fa-skull-crossbones"></i> {kills_sum} Kills</p>
+    <br>
+    <p><small>Updated {date}<small></p>
   </div>
   <p><button onclick="document.location='https://fortnitetracker.com/profile/all/IronVogel'">Detailed Stats</button></p>
 </div>
