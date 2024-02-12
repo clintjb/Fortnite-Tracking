@@ -1,7 +1,7 @@
 import requests
 import json
 import random
-import datetime
+from datetime import datetime
 import os
 
 SECRET = os.environ['ENV_SECRET']
