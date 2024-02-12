@@ -28,7 +28,7 @@ def main():
     api_response = get_fortnite_data(api_key)
 
     if api_response:
-        # Store top level values for processing in HTML
+        # Calculate & store top level stats for processing in HTML
         level = api_response["account"]["level"]
         top1_sum = sum([mode_stats["placetop1"] for mode_stats in api_response["global_stats"].values()])
         kd_average = round(sum([mode_stats["kd"] for mode_stats in api_response["global_stats"].values()]) / len(api_response["global_stats"]), 2)
@@ -45,7 +45,7 @@ def main():
         return None, None, None, None, None
 
 if __name__ == "__main__":
-    level, top1_sum, kd_average, winrate_average, kills_sum, api_key = main()
+    level, top1_sum, kd_average, winrate_average, kills_sum = main()
 
     if level is not None:
         print("Level value:", level)
@@ -77,7 +77,6 @@ html = """\
     <p><i class="fas fa-star-half-alt"></i> {winrate_average} % Win Ratio</p>
     <p><i class="fas fa-tachometer-alt"></i> {kd_average} K/D Ratio</p>
     <p><i class="fas fa-skull-crossbones"></i> {kills_sum} Kills</p>
-    <p><i class="fas fa-skull-crossbones"></i> {api_key} Kills</p>
   </div>
   <p><button onclick="document.location='https://fortnitetracker.com/profile/all/IronVogel'">Detailed Stats</button></p>
 </div>
