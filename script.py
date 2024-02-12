@@ -45,7 +45,7 @@ def main():
         return None, None, None, None, None
 
 if __name__ == "__main__":
-    level, top1_sum, kd_average, winrate_average, kills_sum = main()
+    level, top1_sum, kd_average, winrate_average, kills_sum, api_key = main()
 
     if level is not None:
         print("Level value:", level)
@@ -77,7 +77,7 @@ html = """\
     <p><i class="fas fa-star-half-alt"></i> {winrate_average} % Win Ratio</p>
     <p><i class="fas fa-tachometer-alt"></i> {kd_average} K/D Ratio</p>
     <p><i class="fas fa-skull-crossbones"></i> {kills_sum} Kills</p>
-    <p><i class="fas fa-skull-crossbones"></i> {SECRET} Kills</p>
+    <p><i class="fas fa-skull-crossbones"></i> {api_key} Kills</p>
   </div>
   <p><button onclick="document.location='https://fortnitetracker.com/profile/all/IronVogel'">Detailed Stats</button></p>
 </div>
