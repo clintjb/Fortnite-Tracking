@@ -57,7 +57,7 @@ if __name__ == "__main__":
     else:
         print("Failed to retrieve Fortnite data.")
 
-skin = (random.randint(1, 20))
+skin = (random.randint(1, 23))
 
 # Get todays date & format as string
 today = datetime.today()
