@@ -24,14 +24,15 @@ jobs:
             ${{ runner.os }}-pip-
             
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: "3.9"
-          architecture: "x64"
 
       - name: Install packages
-        run: pip install -r requirements.txt
-        
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Run script
         env:
           ENV_SECRET: ${{ secrets.FORTNITE_SECRET }} 
@@ -42,5 +43,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "Updated Fortnite"
+          git diff --staged --quiet || git commit -m "Updated Fortnite"
           git push
