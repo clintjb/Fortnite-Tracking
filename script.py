@@ -29,17 +29,21 @@ def main():
     api_response = get_fortnite_data(api_key)
 
     if api_response:
-        # Calculate & store top level stats for processing in HTML
-        level = api_response["account"]["level"]
-        top1_sum = sum([mode_stats["placetop1"] for mode_stats in api_response["global_stats"].values()])
-        kd_average = round(sum([mode_stats["kd"] for mode_stats in api_response["global_stats"].values()]) / len(api_response["global_stats"]), 2)
-        winrate_average = round((sum([mode_stats["winrate"] for mode_stats in api_response["global_stats"].values()]) / len(api_response["global_stats"])) * 100, 2)
-        kills_sum = sum([mode_stats["kills"] for mode_stats in api_response["global_stats"].values()])
+        print("Full API response:")
+        print(json.dumps(api_response, indent=2))  # Debug log
 
-        # Additional processing with api_response
+        if "account" in api_response and "global_stats" in api_response:
+            # Calculate & store top level stats for processing in HTML
+            level = api_response["account"].get("level", 0)
+            top1_sum = sum([mode_stats.get("placetop1", 0) for mode_stats in api_response["global_stats"].values()])
+            kd_average = round(sum([mode_stats.get("kd", 0) for mode_stats in api_response["global_stats"].values()]) / len(api_response["global_stats"]), 2)
+            winrate_average = round((sum([mode_stats.get("winrate", 0) for mode_stats in api_response["global_stats"].values()]) / len(api_response["global_stats"])) * 100, 2)
+            kills_sum = sum([mode_stats.get("kills", 0) for mode_stats in api_response["global_stats"].values()])
 
-        # Return all variables
-        return level, top1_sum, kd_average, winrate_average, kills_sum
+            return level, top1_sum, kd_average, winrate_average, kills_sum
+        else:
+            print("API response did not contain 'account' or 'global_stats'.")
+            return None, None, None, None, None
 
     else:
         print("Failed to fetch Fortnite data.")
