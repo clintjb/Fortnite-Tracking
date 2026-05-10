@@ -11,11 +11,13 @@ def get_fortnite_data(api_key):
     params = {
         "name": "PlasticVogel",
         "accountType": "psn",
-        "api_key": api_key
+    }
+    headers = {
+        "Authorization": api_key
     }
 
     try:
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
         data = response.json()
         return data.get("data")
