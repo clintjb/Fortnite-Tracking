@@ -40,7 +40,7 @@ def main():
             top1_sum     = overall.get("wins", 0)
             kills_sum    = overall.get("kills", 0)
             kd_average   = round(overall.get("kd", 0), 2)
-            winrate_average = round(overall.get("winRate", 0) * 100, 2)
+            winrate_average = round(overall.get("winRate", 0), 2)
 
             return level, top1_sum, kd_average, winrate_average, kills_sum
         except KeyError as e:
