@@ -76,7 +76,7 @@ html = """\
 <div class="card">
   <div class="layered-image">
     <img class="image-base" src="images/background.avif" alt="" style="width:100%"/>
-    <img class="image-overlay" src="images/{skin}.png" alt="JΛV0XX_06" style="width:100%"/>
+    <img class="image-overlay" src="images/{skin}.png" alt="PlasticVogel" style="width:100%"/>
   </div>
   <h1>PlasticVogel</h1>
   <p class="title"><i class="fab fa-playstation"></i> Current Level - {level}</p>
