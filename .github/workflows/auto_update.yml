@@ -1,8 +1,7 @@
 name: Automatic Fortnite API Trigger
 
 on:
-  schedule:
-    - cron: "0 */4 * * *"
+  workflow_dispatch:
 
 jobs:
   build:
